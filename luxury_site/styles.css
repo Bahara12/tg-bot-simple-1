@@ -1,0 +1,25 @@
+/* styles.css - базовые стили */
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #222;
+}
+.container { max-width: 1000px; margin: 20px auto; padding: 0 16px; }
+header { background: #111; color: #fff; padding: 16px; }
+header h1 { margin: 0; font-size: 20px; }
+nav { margin-top: 8px; }
+nav a { color: #fff; margin-right: 12px; text-decoration: none; font-size: 14px; }
+.hero { background: linear-gradient(90deg,#222,#444); color: #fff; padding: 30px; border-radius: 8px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; margin-top: 16px; }
+.card { background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.product-img { height: 160px; background: #eee; display:flex; align-items:center; justify-content:center; color:#666; border-radius:6px; font-size:14px; }
+.footer { padding: 20px; text-align: center; color: #666; margin-top: 30px; }
+.button { background: #111; color: white; padding: 8px 12px; border-radius: 6px; text-decoration: none; display: inline-block; }
+.small { font-size: 13px; color: #666; }
+h2,h3 { margin-top: 0; }
+@media (max-width:600px){
+  header h1 { font-size: 16px; }
+  .product-img { height: 120px; }
+}

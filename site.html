@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Boutique | Премиальные женские сумки</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #f8f5f2;
+            --secondary-color: #1a1a1a;
+            --accent-color: #c9a96e;
+            --light-gold: #e8d9b6;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #666;
+            --white: #ffffff;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --error: #f44336;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, .btn {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .btn {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .hero .btn:hover {
+            background-color: var(--white);
+            color: var(--secondary-color);
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .brands h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+        }
+
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .brand-logos div {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .brand-logos div:hover {
+            color: var(--accent-color);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: var(--light-gray);
+            margin-bottom: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .product-card .price {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .limited-badge {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            border-radius: 2px;
+            margin-left: 5px;
+        }
+
+        /* VIP Section */
+        .vip-section {
+            background-color: var(--light-gold);
+            padding: 60px 0;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .vip-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vip-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .vip-content p {
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--dark-gray);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        /* Marketing Plan Page */
+        .marketing-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .marketing-section {
+            margin-bottom: 40px;
+        }
+
+        .marketing-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .marketing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .marketing-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .marketing-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .swot-card {
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .strengths {
+            background: #e8f5e8;
+        }
+
+        .weaknesses {
+            background: #ffe8e8;
+        }
+
+        .opportunities {
+            background: #e8f0ff;
+        }
+
+        .threats {
+            background: #fff8e8;
+        }
+
+        /* Diagrams Page */
+        .diagrams-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .diagram-section {
+            margin-bottom: 60px;
+        }
+
+        .diagram-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .diagram-box {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--medium-gray);
+            overflow-x: auto;
+        }
+
+        .diagram-pre {
+            font-family: monospace;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+
+        /* Forms */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 3px;
+            font-size: 1rem;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-check input {
+            width: auto;
+        }
+
+        /* Cart Page */
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-items {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            background-color: var(--light-gray);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .cart-summary {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-top: 1px solid var(--medium-gray);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+
+            .marketing-grid, .swot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">LUXE<span>BAG</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="marketing.html">Маркетинг</a></li>
+                        <li><a href="diagrams.html">Диаграммы</a></li>
+                        <li><a href="cart.html">Корзина</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="login.html" class="btn">Войти</a>
+                    <a href="register.html" class="btn btn-primary">Регистрация</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content - This will change based on the page -->
+    <main>
+        <!-- Home Page Content -->
+        <section id="home-page" class="page-content active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>ИСКУССТВО ЭЛЕГАНТНОСТИ</h1>
+                    <p>Откройте для себя мир премиальных сумок от ведущих домов моды</p>
+                    <a href="catalog.html" class="btn">Исследовать Коллекцию</a>
+                </div>
+            </section>
+
+            <!-- Brands Section -->
+            <section class="brands">
+                <div class="container">
+                    <h2>Наши Бренды</h2>
+                    <div class="brand-logos">
+                        <div>CHANEL</div>
+                        <div>GUCCI</div>
+                        <div>LOUIS VUITTON</div>
+                        <div>HERMÈS</div>
+                        <div>PRADA</div>
+                        <div>DIOR</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="products-section">
+                <div class="container">
+                    <h2 class="section-title">Избранные Коллекции</h2>
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3')"></div>
+                            <h3>Chanel Classic Flap Bag</h3>
+                            <p class="price">€4,200.00</p>
+                            <p style="color: #666; font-size: 0.9rem;">Limited edition</p>
+                            <a href="product.html" class="btn" style="margin-top: 10px;">Подробнее</a>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3')"></div>
+                            <h3>Gucci Dionysus GG Supreme</h3>
+                            <p class="price">€4,300.00</p>
+                            <p style="color: #666; font-size: 0.9rem;">Popular</p>
+                            <a href="product.html" class="btn" style="margin-top: 10px;">Подробнее</a>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?ixlib=rb-4.0.3')"></div>
+                            <h3>Hermès Birkin 30</h3>
+                            <p class="price">€15,000.00</p>
+                            <p style="color: #666; font-size: 0.9rem;">Ultra luxury</p>
+                            <a href="product.html" class="btn" style="margin-top: 10px;">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIP Section -->
+            <section class="vip-section">
+                <div class="container">
+                    <div class="vip-content">
+                        <h2>VIP Сервис</h2>
+                        <p>Наши VIP-клиенты получают персонального консультанта, эксклюзивный доступ к лимитированным коллекциям и приоритетное обслуживание.</p>
+                        <a href="register.html" class="btn btn-primary">Стать VIP-клиентом</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Other pages would be included here with display:none initially -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Магазин</h4>
+                    <ul>
+                        <li><a href="catalog.html">Все бренды</a></li>
+                        <li><a href="#">Новые поступления</a></li>
+                        <li><a href="#">Лидеры продаж</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Помощь</h4>
+                    <ul>
+                        <li><a href="#">Доставка и возврат</a></li>
+                        <li><a href="#">Уход за изделиями</a></li>
+                        <li><a href="#">Конфиденциальность</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>+7 (495) 123-45-67</li>
+                        <li>info@luxebag.com</li>
+                        <li>Москва, ул. Тверская, 1</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Luxury Boutique. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple page navigation (in a real app, this would be handled by a framework or server)
+        document.addEventListener('DOMContentLoaded', function() {
+            // This is a simplified navigation system
+            // In a real application, you would use a proper routing system
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            
+            // Hide all pages and show the current one
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const activePage = document.getElementById(currentPage.replace('.html', '-page'));
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
