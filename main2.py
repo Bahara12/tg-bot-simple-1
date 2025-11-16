@@ -9,7 +9,7 @@ from db import *
 from telebot import types
 import random
 from db import (get_character_by_id)
-from ai_client import chat_once, OpenRouterError
+from openrouter_client import chat_once, OpenRouterError
 
 # Загрузка переменных окружения
 load_dotenv()
