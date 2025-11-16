@@ -233,3 +233,7 @@ def delete_note(user_id: int, note_id: int) -> bool:
             (user_id, note_id)
         )
     return cur.rowcount > 0
+
+
+
+

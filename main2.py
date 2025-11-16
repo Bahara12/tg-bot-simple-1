@@ -552,3 +552,8 @@ def note_stats(message):
 if __name__ == "__main__":
     print("Бот запускается...")
     bot.infinity_polling(skip_pending=True)
+
+
+
+
+
